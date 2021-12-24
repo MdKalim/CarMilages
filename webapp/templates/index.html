@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+
+<style>
+    .mka {
+        color: rgb(6, 133, 69);
+        border-radius: 10px;
+
+    }
+</style>
+
+    <title>Document</title>
+</head>
+<body style="background-color:azure">
+    
+
+<ul class="nav justify-content-end">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Home</a>
+    </li>
+</ul>
+
+
+
+<div class="container" style="align-items: center; ">
+
+    <h2 style="color: rgb(14, 209, 144); text-align:center">Check Your Car Milage Here (in km/l)
+    </h2>
+
+    <h3 style="color: black; text-align:center">Enter your car details in below</h3>
+
+    <form method="post" enctype="multipart/form-data" action="predictMPG">
+        {% csrf_token %}
+        
+    <div class="col-md-4 col-sm-4"><label for="fname">Cylinders:</label> </div> <input class="mka" name="cylinderVal" type="text"
+        value={{temp.cylinders}}><br><br>
+    <div class="col-md-4 col-sm-4"><label for="lname">Displacement:</label> </div> <input class="mka" type="text" id="lname"
+        name="dispVal" value={{temp.displacement}}><br><br>
+    <div class="col-md-4 col-sm-4"><label for="fname">Horsepower:</label> </div> <input class="mka" type="text" id="fname"
+        name="hrsPwrVal" value={{temp.horsepower}}><br><br>
+    <div class="col-md-4 col-sm-4"><label for="lname">Weight:</label> </div> <input class="mka" type="text" id="lname" name="weightVal"
+        value={{temp.weight}}><br><br>
+    <div class="col-md-4 col-sm-4"><label for="fname">Acceleration :</label></div> <input class="mka" type="text" id="fname"
+        name="accVal" value={{temp.acceleration}}><br><br>
+    <div class="col-md-4 col-sm-4"><label for="lname">Model Year:</label> </div> <input class="mka" type="text" id="lname" name="modelVal"
+        value={{temp.model_year}}><br><br>
+    <div class="col-md-4 col-sm-4"><label for="lname">Origin:</label> </div> <input class="mka" type="text" id="lname" name="originVal"
+        value={{temp.origin}}><br><br>
+            
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+   
+    {% if score %}
+    <h3>Your car milages expected is {{score}} km/lit</h3>
+    {% endif %}
+
+
+    </div>
+
+</body>
+
+<div class="col text-center">
+<footer style="align-self: center; padding: 25px;"> Made By ❤️ Kalim </footer>
+</div>
+</html>
